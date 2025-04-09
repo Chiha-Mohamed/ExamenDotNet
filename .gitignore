@@ -1,0 +1,28 @@
+# Ignore Visual Studio user-specific files
+.vs/
+*.user
+*.suo
+
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore any logs
+*.log
+
+# Ignore temporary files
+*.tmp
+*.bak
+
+# Ignore database files
+*.mdf
+*.ldf
+
+# Ignore EF Migrations snapshot lock files
+*.ide
+
+# Ignore Rider-specific files (if you use JetBrains)
+.idea/
+
+# Ignore Mac system files
+.DS_Store

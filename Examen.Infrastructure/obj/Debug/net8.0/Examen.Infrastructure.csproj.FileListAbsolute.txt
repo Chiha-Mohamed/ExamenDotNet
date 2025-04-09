@@ -32,3 +32,21 @@ C:\Users\Amina\Downloads\SqueletteExamen (3)\Examen\Examen.Infrastructure\obj\De
 C:\Users\Amina\Downloads\SqueletteExamen (3)\Examen\Examen.Infrastructure\obj\Debug\net8.0\Examen.Infrastructure.pdb
 C:\Users\Amina\Downloads\SqueletteExamen (3)\Examen\Examen.Infrastructure\obj\Debug\net8.0\Examen.Infrastructure.genruntimeconfig.cache
 C:\Users\Amina\Downloads\SqueletteExamen (3)\Examen\Examen.Infrastructure\obj\Debug\net8.0\ref\Examen.Infrastructure.dll
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\bin\Debug\net8.0\Examen.Infrastructure.deps.json
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\bin\Debug\net8.0\Examen.Infrastructure.runtimeconfig.json
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\bin\Debug\net8.0\Examen.Infrastructure.dll
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\bin\Debug\net8.0\Examen.Infrastructure.pdb
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\bin\Debug\net8.0\Examen.ApplicationCore.dll
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\bin\Debug\net8.0\Examen.ApplicationCore.pdb
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\obj\Debug\net8.0\Examen.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\obj\Debug\net8.0\Examen.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\obj\Debug\net8.0\Examen.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\obj\Debug\net8.0\Examen.Infrastructure.AssemblyInfo.cs
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\obj\Debug\net8.0\Examen.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\obj\Debug\net8.0\Examen.Infrastructure.sourcelink.json
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\obj\Debug\net8.0\Examen.I.82EBB984.Up2Date
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\obj\Debug\net8.0\Examen.Infrastructure.dll
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\obj\Debug\net8.0\refint\Examen.Infrastructure.dll
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\obj\Debug\net8.0\Examen.Infrastructure.pdb
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\obj\Debug\net8.0\Examen.Infrastructure.genruntimeconfig.cache
+C:\Users\lenovo\Downloads\SqueletteExamen\Examen\Examen.Infrastructure\obj\Debug\net8.0\ref\Examen.Infrastructure.dll
