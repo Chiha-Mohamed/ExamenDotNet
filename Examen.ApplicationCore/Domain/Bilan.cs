@@ -15,5 +15,7 @@ namespace Examen.ApplicationCore.Domain
         public bool Paye { get; set; }
         public Infirmier Infirmier { get; set; } = null!;
         public Patient Patient { get; set; } = null!;
+        public ICollection<Analyse> Analyses { get; set; } = new List<Analyse>();
+
     }
 }
