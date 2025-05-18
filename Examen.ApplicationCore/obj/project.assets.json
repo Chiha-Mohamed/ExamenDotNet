@@ -594,23 +594,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lenovo\\.nuget\\packages\\": {},
+    "C:\\Users\\Mariam\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lenovo\\Downloads\\SqueletteExamen\\Examen\\Examen.ApplicationCore\\Examen.ApplicationCore.csproj",
+      "projectUniqueName": "C:\\Users\\Mariam\\Downloads\\Dotnet\\ExamenDotNet\\Examen.ApplicationCore\\Examen.ApplicationCore.csproj",
       "projectName": "Examen.ApplicationCore",
-      "projectPath": "C:\\Users\\lenovo\\Downloads\\SqueletteExamen\\Examen\\Examen.ApplicationCore\\Examen.ApplicationCore.csproj",
-      "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lenovo\\Downloads\\SqueletteExamen\\Examen\\Examen.ApplicationCore\\obj\\",
+      "projectPath": "C:\\Users\\Mariam\\Downloads\\Dotnet\\ExamenDotNet\\Examen.ApplicationCore\\Examen.ApplicationCore.csproj",
+      "packagesPath": "C:\\Users\\Mariam\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mariam\\Downloads\\Dotnet\\ExamenDotNet\\Examen.ApplicationCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mariam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -637,7 +637,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -664,7 +664,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

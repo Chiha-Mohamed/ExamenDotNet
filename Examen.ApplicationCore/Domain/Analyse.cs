@@ -11,9 +11,13 @@ namespace Examen.ApplicationCore.Domain
         public int AnalyseId { get; set; }
         public int DureeResultat { get; set; }
         public double PrixAnalyse { get; set; }
-        public string TypeAnalyse { get; set; } = string.Empty;
+        public string TypeAnalyse { get; set; }
+
         public float ValeurAnalyse { get; set; }
         public float ValeurMaxNormale { get; set; }
         public float ValeurMinNormale { get; set; }
+
+        public ICollection<Bilan> Bilans { get; set; }
+        public int LaboratoireId { get; set; }
     }
 }
