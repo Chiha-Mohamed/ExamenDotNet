@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,10 @@ namespace Examen.ApplicationCore.Domain
         public float ValeurMaxNormale { get; set; }
         public float ValeurMinNormale { get; set; }
 
-        public ICollection<Bilan> Bilans { get; set; }
-        public int LaboratoireId { get; set; }
+        public int InfirmierFk { get; set; }
+        public string PatientFk { get; set; }
+        public DateTime DatePrelevement { get; set; }
+
+        public virtual Bilan Bilan { get; set; }
     }
 }

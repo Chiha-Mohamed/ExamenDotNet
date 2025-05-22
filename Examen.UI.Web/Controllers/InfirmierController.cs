@@ -1,62 +1,102 @@
 ﻿using Examen.ApplicationCore.Domain;
-using Examen.Infrastructure.Data;
+using Examen.ApplicationCore.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
 namespace Examen.UI.Web.Controllers
 {
     public class InfirmierController : Controller
     {
-        private readonly AppDbContext _ctx;
-        public InfirmierController(AppDbContext ctx) => _ctx = ctx;
+        IServiceInfirmier inf;
+        IServiceLaboratoire laboService; // You need a service to get Laboratoires
 
-
-        public IActionResult Index()
+        public InfirmierController(IServiceInfirmier inf, IServiceLaboratoire laboService)
         {
-            var list = _ctx.Infirmiers
-                .Include(i => i.Laboratoire) 
-                .ToList();
-
-            return View(list);
+            this.inf = inf;
+            this.laboService = laboService;
+        }
+        // GET: InfirmierController
+        public ActionResult Index()
+        {
+            var infirmiers = inf.GetAllWithLaboratoire();
+            return View(infirmiers);
         }
 
-        
-        public IActionResult Create()
+        // GET: InfirmierController/Details/5
+        public ActionResult Details(int id)
         {
-            ViewBag.Laboratoires = new SelectList(_ctx.Laboratoires, "LaboratoireId", "Intitule");
-            ViewBag.Specialites = new SelectList(Enum.GetValues(typeof(Specialite)));
             return View();
         }
 
-        
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(Infirmier infirmier)
+        // GET: InfirmierController/Create
+        public ActionResult Create()
         {
-            if (!ModelState.IsValid)
-            {
-                ViewBag.Laboratoires = new SelectList(_ctx.Laboratoires, "LaboratoireId", "Intitule", infirmier.LaboratoireId);
-                ViewBag.Specialites = new SelectList(Enum.GetValues(typeof(Specialite)), infirmier.Specialite);
-                return View(infirmier);
-            }
+            var laboratoires = laboService.GetMany().ToList();
+            ViewBag.Laboratoires = new SelectList(laboratoires, "LaboratoireId", "Intitule");
 
-            _ctx.Infirmiers.Add(infirmier);
-            _ctx.SaveChanges();
+            var specialites = Enum.GetValues(typeof(Specialite))
+                                  .Cast<Specialite>()
+                                  .Select(s => new SelectListItem
+                                  {
+                                      Value = ((int)s).ToString(),
+                                      Text = s.ToString()
+                                  }).ToList();
+            ViewBag.Specialites = specialites;
 
-            return RedirectToAction("Index");
+            return View();
         }
 
-        public IActionResult Patients(int id)
+        // POST: InfirmierController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Infirmier collection)
         {
-            var patients = _ctx.Bilans
-                .Include(b => b.Patient)
-                .Where(b => b.InfirmierId == id)
-                .Select(b => b.Patient)
-                .Distinct()
-                .ToList();
+            inf.Add(collection);
+            inf.Commit();
+            return RedirectToAction(nameof(Index));
+        }
 
-            return View(patients);
+        // GET: InfirmierController/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: InfirmierController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: InfirmierController/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: InfirmierController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

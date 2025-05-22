@@ -10,15 +10,18 @@ namespace Examen.ApplicationCore.Domain
     public class Patient
     {
         [Key]
-        [StringLength(5, ErrorMessage = "CodePatient doit avoir exactement 5 caractères.", MinimumLength = 5)]
-        public string CodePatient { get; set; } = string.Empty;
-        public string EmailPatient { get; set; } = string.Empty;
+        [StringLength(5,ErrorMessage = "Le code patient doit contenir exactement 5 caractères.")]
+        public string CodePatient { get; set; }
 
-        [DataType(DataType.MultilineText)]
+        public string EmailPatient { get; set; }
+
         [Display(Name = "Informations supplémentaires")]
-        public string Informations { get; set; } = string.Empty;
-        public string NomComplet { get; set; } = string.Empty;
-        public string NumeroTel { get; set; } = string.Empty;
-        public ICollection<Bilan> Bilans { get; set; } = new List<Bilan>();
+        [DataType(DataType.MultilineText)]
+        public string Informations { get; set; }
+
+        public string NomComplet { get; set; }
+        public string NumeroTel { get; set; }
+
+        public virtual ICollection<Bilan> Bilans { get; set; }
     }
 }

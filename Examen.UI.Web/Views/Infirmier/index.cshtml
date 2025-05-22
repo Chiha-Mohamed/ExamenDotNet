@@ -1,35 +1,55 @@
-﻿﻿@model IEnumerable<Examen.ApplicationCore.Domain.Infirmier>
+﻿@model IEnumerable<Examen.ApplicationCore.Domain.Infirmier>
 
-    @{
-    ViewData["Title"] = "Liste des Infirmiers";
-    }
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-    <h2>@ViewData["Title"]</h2>
+<h1>Liste des Infirmiers</h1>
 
-    <a asp-action="Create" class="btn btn-success mb-3">Ajouter un nouvel infirmier</a>
-
-    <table class="table table-bordered table-striped">
-        <thead class="table-light">
+<p>
+    <a asp-action="Create">Créer un nouvel Infirmier</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().InfirmierId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().NomComplet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Specialite)
+            </th>
+            <th>
+                Laboratoire
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>Nom Complet</th>
-                <th>Spécialité</th>
-                <th>Laboratoire</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var inf in Model)
-            {
-            <tr>
-                <td>@inf.NomComplet</td>
-                <td>@inf.Specialite</td>
-                <td>@inf.Laboratoire?.Intitule</td>
                 <td>
-                    <a asp-action="Patients" asp-route-id="@inf.InfirmierId" class="btn btn-sm btn-outline-info">
-                        Voir les patients
-                    </a>
+                    @Html.DisplayFor(modelItem => item.InfirmierId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomComplet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specialite)
+                </td>
+                <td>
+                    @item.Laboratoire?.Intitule
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.InfirmierId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.InfirmierId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.InfirmierId })
                 </td>
             </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>

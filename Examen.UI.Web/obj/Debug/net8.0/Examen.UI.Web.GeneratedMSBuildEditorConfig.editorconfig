@@ -1,11 +1,19 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Examen.UI.Web
 build_property.RootNamespace = Examen.UI.Web
@@ -32,8 +40,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5maXJtaWVyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Mariam/Downloads/Dotnet/ExamenDotNet/Examen.UI.Web/Views/Infirmier/Patients.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5maXJtaWVyXFBhdGllbnRzLmNzaHRtbA==
+[C:/Users/Mariam/Downloads/Dotnet/ExamenDotNet/Examen.UI.Web/Views/Infirmier/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5maXJtaWVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Mariam/Downloads/Dotnet/ExamenDotNet/Examen.UI.Web/Views/Shared/Error.cshtml]

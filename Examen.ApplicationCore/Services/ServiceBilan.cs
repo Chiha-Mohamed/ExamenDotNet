@@ -1,73 +1,66 @@
-﻿using System;
+﻿using Examen.ApplicationCore.Domain;
+using Examen.ApplicationCore.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Examen.ApplicationCore.Domain;
-using Examen.ApplicationCore.Interfaces;
 
 namespace Examen.ApplicationCore.Services
 {
-    public class ServiceBilan : IServiceBilan
+    public class ServiceBilan : Service<Bilan>, IServiceBilan
     {
-        public double GetMontantTotalBilan(Bilan bilan)
+        public ServiceBilan(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            if (bilan == null || bilan.Patient == null)
-                throw new ArgumentNullException();
+        }
 
-            int nombrePrelevements = bilan.Patient.Bilans.Sum(b => b.Analyses.Count);
+        public Dictionary<Bilan, List<Analyse>> GetAnalysesAnormalesParBilan(string patientCode)
+        {
+            var analyses = GetMany()
+                .Where(b => b.PatientFk == patientCode && b.DatePrelevement.Year == DateTime.Now.Year)
+                .SelectMany(b => b.Analyses
+                    .Where(a => a.ValeurAnalyse > a.ValeurMaxNormale || a.ValeurAnalyse < a.ValeurMinNormale)
+                    .Select(a => new { Bilan = b, Analyse = a }))
+                .ToList();
+
+            return analyses
+                .GroupBy(x => x.Bilan)
+                .ToDictionary(g => g.Key, g => g.Select(x => x.Analyse).ToList());
+        }
+
+        public DateTime GetDateRecuperationBilan(int infirmierId, string patientCode, DateTime datePrelevement)
+        {
+            var bilan = GetMany()
+                .FirstOrDefault(b => b.InfirmierFk == infirmierId
+                                  && b.PatientFk == patientCode
+                                  && b.DatePrelevement == datePrelevement);
+
+            if (bilan == null || bilan.Analyses == null || !bilan.Analyses.Any())
+                return DateTime.MinValue;
+
+            int maxDuree = bilan.Analyses.Max(a => a.DureeResultat);
+
+            return bilan.DatePrelevement.AddDays(maxDuree);
+        }
+
+        public double GetMontantTotalBilan(int infirmierId, string patientCode, DateTime datePrelevement)
+        {
+            var bilan = GetMany()
+                .FirstOrDefault(b => b.InfirmierFk == infirmierId
+                                  && b.PatientFk == patientCode
+                                  && b.DatePrelevement == datePrelevement);
+
+            if (bilan == null)
+                return 0;
+
             double total = bilan.Analyses.Sum(a => a.PrixAnalyse);
 
-            if (nombrePrelevements > 5)
+            int nbPrelevements = GetMany().Count(b => b.PatientFk == patientCode);
+
+            if (nbPrelevements > 5)
                 total *= 0.9;
 
             return total;
         }
 
-        public double GetPourcentageInfirmiersParSpecialite(Specialite specialite, IEnumerable<Infirmier> infirmiers)
-        {
-            if (!infirmiers.Any())
-                return 0;
-
-            int total = infirmiers.Count();
-            int specialiseCount = infirmiers.Count(i => i.Specialite == specialite);
-
-            return (double)specialiseCount / total * 100;
-        }
-
-        public Dictionary<Bilan, List<Analyse>> GetAnalysesAnormalesParBilan(Patient patient)
-        {
-            var result = new Dictionary<Bilan, List<Analyse>>();
-
-            if (patient == null || patient.Bilans == null)
-                return result;
-
-            foreach (var bilan in patient.Bilans)
-            {
-                var anormales = bilan.Analyses
-                    .Where(a => a.ValeurAnalyse < a.ValeurMinNormale || a.ValeurAnalyse > a.ValeurMaxNormale)
-                    .ToList();
-
-                if (anormales.Any())
-                    result.Add(bilan, anormales);
-            }
-
-            return result;
-        }
-
-        public DateTime? GetDateRecuperationBilan(Bilan bilan)
-        {
-            if (bilan == null || !bilan.Analyses.Any())
-                return null;
-
-            DateTime datePrelevement = bilan.DatePrelevement;
-
-            var datesDisponibles = bilan.Analyses
-                .Select(a => datePrelevement.AddDays(a.DureeResultat))
-                .ToList();
-
-            return datesDisponibles.Max();
-        }
+        
     }
 }
-

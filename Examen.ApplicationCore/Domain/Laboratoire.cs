@@ -9,7 +9,9 @@ namespace Examen.ApplicationCore.Domain
     public class Laboratoire
     {
         public int LaboratoireId { get; set; }
-        public string Intitulé { get; set; } = string.Empty;
+        public string Intitule { get; set; } = string.Empty;
         public string Localisation { get; set; } = string.Empty;
+
+        public virtual ICollection<Infirmier> Infirmiers { get; set; }
     }
 }
